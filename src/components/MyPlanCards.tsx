@@ -104,7 +104,7 @@ export default function MyPlanCards({ list, tab }: MyPlanCardsProps) {
                     }`}
                   >
                     <Check size={16} />
-                    {isDone ? 'COMPLETED' : 'MARK DONE'}
+                    {isDone ? 'COMPLETED' : 'MARK AS DONE'}
                   </button>
                 )}
               </div>
