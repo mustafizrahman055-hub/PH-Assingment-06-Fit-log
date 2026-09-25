@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Workout } from "@/types";
-import { Clock, Flame, Star, Check, X, ArrowRight } from "lucide-react";
+import { Clock, Flame, Star, Check, X } from "lucide-react";
 import { useWorkout } from "@/context/WorkoutContext";
 import toast from "react-hot-toast";
 
@@ -23,6 +23,10 @@ export default function MyPlanCards({ list, tab }: MyPlanCardsProps) {
       removeFromSaved(id);
     }
     toast.success(`${name} removed from ${tab === "plan" ? "plan" : "saved"}.`);
+  };
+
+  const handleViewDetails = (name: string) => {
+    toast.success(`Opening details for ${name}.`);
   };
 
   const handleMarkDone = (id: number, name: string) => {
