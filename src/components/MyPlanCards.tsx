@@ -54,7 +54,7 @@ export default function MyPlanCards({ list, tab }: MyPlanCardsProps) {
             )}
             <button 
               onClick={() => handleRemove(workout.id, workout.name)}
-              className="absolute top-4 right-4 z-10 bg-slate-950/80 text-slate-400 p-2 rounded-full hover:text-red-500 hover:bg-slate-900 transition-colors backdrop-blur opacity-0 group-hover:opacity-100"
+              className="absolute top-4 right-4 z-10 bg-slate-950/80 text-slate-400 p-2 rounded-full hover:text-red-500 hover:bg-slate-900 transition-colors backdrop-blur opacity-100"
               title="Remove"
             >
               <X size={16} />
