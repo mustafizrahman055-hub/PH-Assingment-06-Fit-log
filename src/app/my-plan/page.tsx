@@ -29,9 +29,9 @@ export default function MyPlanPage() {
     <main className="max-w-7xl mx-auto px-8 py-12">
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-5xl font-display uppercase font-bold mb-4">My Plan</h1>
+          <h1 className="text-5xl font-display uppercase font-bold mb-4">MY PLAN</h1>
           <p className="text-slate-400 text-lg">
-            Cap of five lifts for today's plan. Train hard, log honest.
+            Cap of five lifts for today. Finish them, then load more.
           </p>
         </div>
         <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
@@ -100,10 +100,10 @@ export default function MyPlanPage() {
 
       {sortedList.length === 0 ? (
         <div className="text-center py-20 bg-slate-900/50 rounded-3xl border border-slate-800 border-dashed">
-          <h2 className="text-3xl font-display uppercase font-bold mb-4">Nothing here yet</h2>
-          <p className="text-slate-400 mb-8">Start browsing the library to build your perfect routine.</p>
+          <h2 className="text-3xl font-display uppercase font-bold mb-4">NOTHING HERE YET</h2>
+          <p className="text-slate-400 mb-8">Browse the library and add a lift to get today moving.</p>
           <Link href="/" className="bg-accent text-slate-950 font-bold px-8 py-4 rounded-full hover:bg-accent/90 transition-colors inline-block">
-            BROWSE WORKOUTS
+            Go to workouts
           </Link>
         </div>
       ) : (
