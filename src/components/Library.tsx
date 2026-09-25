@@ -34,7 +34,7 @@ export default function Library() {
         <div>
           <h2 className="text-5xl font-display uppercase font-bold mb-4">The Library</h2>
           <p className="text-slate-400 text-lg">
-            Browse our collection of exercises and build your perfect routine.
+            Twelve lifts covering every major muscle group.
           </p>
         </div>
         <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">

@@ -11,8 +11,7 @@ export default function Home() {
               Train with intent.<br />Log every set.
             </h1>
             <p className="text-slate-400 text-lg max-w-md">
-              Build your perfect routine from our curated library of exercises. 
-              Track your progress and stay consistent.
+              FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up.
             </p>
             <a 
               href="#library" 
