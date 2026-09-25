@@ -1,22 +1,31 @@
-# FitLog
+# FitLog - Workout Tracker
 
-FitLog is a modern, fully responsive web application that helps fitness enthusiasts build their perfect workout routine, track their progress, and stay consistent.
+A fitness tracking web app I built as part of my Programming Hero Batch 14 assignment. It lets you browse workouts, build a daily plan, and save exercises for later.
 
 ## 🔗 Links
 - **Live Site**: https://fitlog-pro.netlify.app
-- **GitHub Repository**: https://github.com/mustafizrahman055-hub/PH-Assingment-06-Fit-log
+- **GitHub Repo**: https://github.com/mustafizrahman055-hub/PH-Assingment-06-Fit-log
 
-## Technologies Used
-- Next.js (App Router)
-- React
-- Tailwind CSS (Tailwind v4)
-- Lucide React (Icons)
-- React Hot Toast (Notifications)
-- LocalStorage (Data Persistence)
+## Tech I used
+- **Next.js** (App Router) — for the pages and routing
+- **React** — component based UI
+- **Tailwind CSS** — styling everything
+- **Lucide React** — icons
+- **React Hot Toast** — notifications when you add/remove workouts
+- **LocalStorage** — so your plan saves even when you close the tab
 
-## Key Features
-1. **Curated Workout Library**: Browse a list of exercises fetched dynamically with detailed statistics (duration, calories, rating).
-2. **Interactive State Management**: Add workouts to "Today's Plan" or "Save for Later", persisted automatically across reloads.
-3. **Plan Capacity Validation**: Caps "Today's Plan" at 5 exercises to enforce focused intent with user-friendly toast notifications.
-4. **Dynamic Analytics**: See real-time metrics summarizing the total exercises, minutes, and calories of your active lists.
-5. **Dynamic Sorting**: Reorder any workout library or plan by duration, calories burned, or user rating.
+## Features
+1. **Workout Library** — browse 12 exercises fetched from a live API, each with image, category, equipment info and stats
+2. **Add to Plan / Save for Later** — click any workout detail page and add it to your daily plan or save it
+3. **5 Workout Limit** — today's plan caps at 5 lifts, you get a toast if you try to add more
+4. **My Plan Page** — see your exercises, total minutes and calories at a glance. mark workouts done or remove them
+5. **Sort Workouts** — sort the library or your plan by duration, calories burned or rating
+
+## How to run locally
+
+```bash
+npm install
+npm run dev
+```
+
+open http://localhost:3000
