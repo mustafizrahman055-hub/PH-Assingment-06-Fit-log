@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Workout } from "@/types";
 import { Clock, Flame, Star, Settings, LayoutList, Trophy } from "lucide-react";
+import WorkoutActions from "./WorkoutActions";
 
 export default async function WorkoutPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -81,7 +82,7 @@ export default async function WorkoutPage({ params }: { params: Promise<{ id: st
               ))}
             </ol>
           </div>
-
+          <WorkoutActions workout={workout} />
         </div>
       </div>
     </main>
