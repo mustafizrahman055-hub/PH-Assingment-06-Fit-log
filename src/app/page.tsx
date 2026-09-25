@@ -1,3 +1,5 @@
+import Library from "@/components/Library";
+
 export default function Home() {
   return (
     <main>
@@ -30,7 +32,7 @@ export default function Home() {
       </section>
 
       <section id="library" className="min-h-screen px-8 py-24 bg-slate-900/50">
-        {/* Library section will be added here in step 5 */}
+        <Library />
       </section>
     </main>
   );
