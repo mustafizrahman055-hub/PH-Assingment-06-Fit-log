@@ -2,6 +2,10 @@
 
 FitLog is a modern, fully responsive web application that helps fitness enthusiasts build their perfect workout routine, track their progress, and stay consistent.
 
+## 🔗 Links
+- **Live Site**: https://fitlog-pro.netlify.app
+- **GitHub Repository**: https://github.com/mustafizrahman055-hub/PH-Assingment-06-Fit-log
+
 ## Technologies Used
 - Next.js (App Router)
 - React
