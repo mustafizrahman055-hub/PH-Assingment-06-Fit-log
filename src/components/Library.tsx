@@ -1,39 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Workout } from "@/types";
 import WorkoutCard from "./WorkoutCard";
 
-export default function Library() {
-  const [workouts, setWorkouts] = useState<Workout[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+interface LibraryProps {
+  initialWorkouts: Workout[];
+}
+
+export default function Library({ initialWorkouts }: LibraryProps) {
   const [sortBy, setSortBy] = useState("duration");
 
-  const fetchWorkouts = () => {
-    setLoading(true);
-    setError(false);
-    fetch("https://api.abcz.workers.dev/api/fitlog")
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to fetch");
-        return res.json();
-      })
-      .then(data => {
-        setWorkouts(Array.isArray(data) ? data : []);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setError(true);
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    fetchWorkouts();
-  }, []);
-
-  const sortedWorkouts = [...workouts].sort((a, b) => {
+  const sortedWorkouts = [...initialWorkouts].sort((a, b) => {
     if (sortBy === "calories") return b.caloriesBurned - a.caloriesBurned;
     if (sortBy === "rating") return b.rating - a.rating;
     return a.duration - b.duration;
@@ -63,19 +41,9 @@ export default function Library() {
         </div>
       </div>
 
-      {loading ? (
+      {sortedWorkouts.length === 0 ? (
         <div className="flex justify-center items-center min-h-[40vh]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-accent"></div>
-        </div>
-      ) : error ? (
-        <div className="text-center py-20">
-          <p className="text-slate-400 text-lg mb-4">Failed to load workouts. Please try again.</p>
-          <button
-            onClick={fetchWorkouts}
-            className="bg-accent text-slate-950 font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition-colors"
-          >
-            Retry
-          </button>
+          <p className="text-slate-400 text-lg">No workouts found. Please refresh the page.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
