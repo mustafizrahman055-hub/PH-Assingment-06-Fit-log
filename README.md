@@ -3,7 +3,7 @@
 A fitness tracking web app I built as part of my Programming Hero Batch 14 assignment. It lets you browse workouts, build a daily plan, and save exercises for later.
 
 ## 🔗 Links
-- **Live Site**: https://fitlog-pro.netlify.app
+- **Live Site**: https://ph-assingment-06-fit-log.vercel.app/
 - **GitHub Repo**: https://github.com/mustafizrahman055-hub/PH-Assingment-06-Fit-log
 
 ## Tech I used
