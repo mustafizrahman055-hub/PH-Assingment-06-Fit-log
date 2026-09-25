@@ -8,6 +8,7 @@ import MyPlanCards from "@/components/MyPlanCards";
 
 export default function MyPlanPage() {
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
+  const [sortBy, setSortBy] = useState("duration");
   const { plan, saved, isMounted } = useWorkout();
 
   const activeList = activeTab === "plan" ? plan : saved;
@@ -16,15 +17,36 @@ export default function MyPlanPage() {
   const totalMinutes = activeList.reduce((acc, curr) => acc + curr.duration, 0);
   const totalCalories = activeList.reduce((acc, curr) => acc + curr.caloriesBurned, 0);
 
+  const sortedList = [...activeList].sort((a, b) => {
+    if (sortBy === "calories") return b.caloriesBurned - a.caloriesBurned;
+    if (sortBy === "rating") return b.rating - a.rating;
+    return a.duration - b.duration;
+  });
+
   if (!isMounted) return null;
 
   return (
     <main className="max-w-7xl mx-auto px-8 py-12">
-      <div className="mb-12">
-        <h1 className="text-5xl font-display uppercase font-bold mb-4">My Plan</h1>
-        <p className="text-slate-400 text-lg">
-          Cap of five lifts for today's plan. Train hard, log honest.
-        </p>
+      <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 className="text-5xl font-display uppercase font-bold mb-4">My Plan</h1>
+          <p className="text-slate-400 text-lg">
+            Cap of five lifts for today's plan. Train hard, log honest.
+          </p>
+        </div>
+        <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
+          <label htmlFor="sort" className="text-sm font-bold text-slate-400 uppercase tracking-wider">Sort by:</label>
+          <select 
+            id="sort" 
+            value={sortBy} 
+            onChange={(e) => setSortBy(e.target.value)}
+            className="bg-transparent text-slate-50 font-medium outline-none cursor-pointer"
+          >
+            <option value="duration" className="bg-slate-900">Duration</option>
+            <option value="calories" className="bg-slate-900">Calories</option>
+            <option value="rating" className="bg-slate-900">Rating</option>
+          </select>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -76,7 +98,7 @@ export default function MyPlanPage() {
         </button>
       </div>
 
-      {activeList.length === 0 ? (
+      {sortedList.length === 0 ? (
         <div className="text-center py-20 bg-slate-900/50 rounded-3xl border border-slate-800 border-dashed">
           <h2 className="text-3xl font-display uppercase font-bold mb-4">Nothing here yet</h2>
           <p className="text-slate-400 mb-8">Start browsing the library to build your perfect routine.</p>
@@ -85,7 +107,7 @@ export default function MyPlanPage() {
           </Link>
         </div>
       ) : (
-        <MyPlanCards list={activeList} tab={activeTab} />
+        <MyPlanCards list={sortedList} tab={activeTab} />
       )}
     </main>
   );
