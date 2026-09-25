@@ -42,7 +42,7 @@ export default function Navbar() {
         </Link>
         <Link href="/my-plan" className="flex items-center gap-2 bg-accent text-slate-950 font-medium rounded-full px-4 py-1.5 text-sm hover:bg-accent/90 transition-colors">
           <span>Plan</span>
-          <span className="bg-slate-950 text-accent text-xs px-2 py-0.5 rounded-full">
+          <span className="bg-slate-950/30 text-slate-950 font-bold text-xs px-2 py-0.5 rounded-full">
             {isMounted ? plan.length : 0}
           </span>
         </Link>
